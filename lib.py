@@ -155,13 +155,7 @@ def getKeyTag(rdata):
     return ac & 0xffff
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description='Uses dnpython to validate a single domain')
-    parser.add_argument('domain', metavar='DOMAIN', type=str, help='domain to look up')
-    args = parser.parse_args()
-
-    domain = args.domain
+def validate_zone(domain):
     if domain.endswith('.') == False:
         domain = domain + '.'
 
@@ -258,6 +252,3 @@ def main():
             print("Valid RRSIG: " + str(rrsig))
 
 
-# Boilerplate stub to launch main
-if __name__ == '__main__':
-    main()
